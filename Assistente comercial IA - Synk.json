@@ -1,0 +1,161 @@
+{
+  "name": "Assistente comercial IA - Synk",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "=POST",
+        "path": "=ChatbotSynk",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -280,
+        -20
+      ],
+      "id": "0f6a5af0-39e9-4b94-8b33-81625f72f12a",
+      "name": "Webhook",
+      "webhookId": "c3840009-5630-4dec-9d74-8e33fe0d3a39"
+    },
+    {
+      "parameters": {
+        "promptType": "=define",
+        "text": "=Você é um chatbot comercial da SYNK. Analise a mensagem e:\n\n1. Se for primeira interação: Cumprimente e colete nome/empresa\n2. Se tiver dados parciais: Colete informações faltantes\n3. Se tiver dados completos: Gere proposta\n\nDADOS DISPONÍVEIS: {{ $json }}\n\nResponda de forma natural e conversacional.\nFaça apenas UMA pergunta por vez.",
+        "needsFallback": true,
+        "options": {
+          "systemMessage": "=Você é um chatbot comercial da SYNK. Analise a mensagem e:\n\n1. Se for primeira interação: Cumprimente e colete nome/empresa\n2. Se tiver dados parciais: Colete informações faltantes\n3. Se tiver dados completos: Gere proposta\n\nDADOS DISPONÍVEIS: {{ $json }}\n\nResponda de forma natural e conversacional.\nFaça apenas UMA pergunta por vez."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2,
+      "position": [
+        -40,
+        -20
+      ],
+      "id": "fb94941d-6f09-4d01-bd2d-02d96e03e5f4",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "=gpt-4o-mini",
+          "mode": "id"
+        },
+        "options": {
+          "responseFormat": "json_object"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        -20,
+        200
+      ],
+      "id": "6182b3e0-6a50-4f83-8ebc-d95a99120245",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "QQauzQz2s62DOXeM",
+          "name": "n8n free OpenAI API credits"
+        }
+      },
+      "notes": "=Você é um assistente comercial da empresa {{$json[\"empresa\"]}}, especializado em soluções com Inteligência Artificial.\n\nUm cliente entrou em contato solicitando informações sobre: {{$json[\"produto\"]}}.\n\nSua missão é:\n\n- Criar uma resposta inicial humanizada e acolhedora\n- Adaptar o nível da explicação conforme o perfil do cliente (se técnico, aprofunde um pouco mais; se leigo, seja didático e simples)\n- Transmitir segurança, clareza e empolgação com a solução\n- Incluir uma chamada para ação no final (ex: agendar conversa, enviar materiais, propor próximo passo)\n\nUse frases curtas, objetivas e naturais. Emojis podem ser usados com moderação para tornar a comunicação leve (ex: 😊💡📈).\n\nSeja direto, gentil e estratégico — como quem está aqui pra ajudar de verdade.\n\nGere a mensagem como se fosse a primeira resposta da conversa.\n"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={\n  \"message\": \"Olá, preciso de automação\",\n  \"user_data\": {\n    \"nome\": \"João\",\n    \"empresa\": \"Tech Co\"\n  }\n}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        100,
+        200
+      ],
+      "id": "012e3185-b823-4c00-8529-d4f273da3899",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={\n  \"message\": \"{{ $json.choices[0].message.content }}\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "position": [
+        320,
+        -20
+      ],
+      "id": "e8742057-8c12-4693-afe2-32f25c91a5fc",
+      "name": "Respond to Webhook",
+      "alwaysOutputData": true
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a6cedd9c-c457-4f1a-9f4f-dceefa7450f0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c95dfeeff51b757329f584c02c4a98ba9e671b2c45f0d910d69cb921853ed970"
+  },
+  "id": "aDO0pN1AIE7V84XH",
+  "tags": []
+}
