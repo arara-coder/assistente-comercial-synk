@@ -114,6 +114,21 @@ Além de entregar o fluxo funcional, documentei também o experimento com n8n co
 
 ---
 
+## 🧪 Validação e Testes
+
+Durante o desenvolvimento do projeto, validei o funcionamento do sistema testando cada etapa do fluxo, desde a coleta de dados até a resposta gerada pela OpenAI. Realizei testes manuais de integração entre o Typebot, o n8n, e a OpenAI API, assegurando que os dados fossem processados corretamente e as respostas fossem personalizadas conforme esperado.
+
+Principais Testes Realizados
+Validação de Fluxo: Testei o processo de coleta de dados e geração de respostas, garantindo que as interações fossem fluidas e precisas.
+
+Teste de Erros e Fallbacks: Verifiquei a resposta do sistema a dados inválidos e simulei falhas para garantir que o sistema retornasse mensagens claras de erro, mantendo a experiência do usuário.
+
+Testes de Desempenho: Realizei verificações rápidas de tempo de resposta para assegurar que as interações fossem rápidas e eficientes, ajustando quando necessário.
+
+Embora os testes tenham sido realizados de forma manual, este processo garantiu que o sistema estivesse funcionando de maneira robusta e eficiente.
+
+---
+
 ## 👩🏽‍💻 Sobre a Desenvolvedora
 
 **Lídi Moura** — artista em transição para tecnologia 🌱
