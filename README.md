@@ -7,200 +7,139 @@
 ![Typebot](https://img.shields.io/badge/Typebot-Integration-5D4037?style=for-the-badge&logo=robot&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Funcional-success?style=for-the-badge)
 
-**Uma solução inteligente para automatizar o atendimento comercial usando IA generativa**
 
-[🚀 Testar Assistente](https://typebot.co/chatbot-comercial-synk-teste-ubyt635) • [📖 Documentação](#-fluxos-documentados) • [🎯 Demonstração](#demonstração)
+ **Tecnologia Sustentável · OpenAI · Typebot · n8n · No-code/Low-code**
 
-</div>
+ 🌿 Documentado como parte de uma abordagem de tecnologia sustentável e iterativa.
 
 ---
 
-## Visão Geral
+### 🚀 Acesse
+- 🎯 [Teste o Assistente (Typebot)](#) [https://typebot.co/chatbot-comercial-synk-teste-ubyt635]
+- 📖 [Documentação dos Fluxos](docs/)
+- 📸 [Capturas de Tela](assets/screenshots/)
+
+---
+
+## 👋 Visão Geral
 
 Olá, equipe Synk! 🌟  
-Este repositório apresenta o resultado do meu teste técnico para criar um assistente comercial inteligente usando Typebot + OpenAI API. O projeto reflete minha abordagem de **tecnologia sustentável** — priorizando eficiência, acessibilidade e experiência do usuário.
+Este repositório apresenta o resultado do meu teste técnico: um **assistente comercial inteligente**, criado com **Typebot** e **OpenAI API**, explorando também o **n8n** como alternativa de integração. O projeto reflete minha abordagem de **tecnologia sustentável**, priorizando:
 
-**Objetivos do projeto:**
-- ✅ Capturar dados comerciais (empresa, produto, contato)  
-- ✅ Gerar respostas personalizadas via IA generativa  
-- ✅ Entrega de experiência conversacional fluida e profissional  
-- ✅ Encaminhamento orientado para os próximos passos comerciais
+- Eficiência
+- Acessibilidade
+- Experiência do usuário
+
+Aceitei o desafio de usar o Typebot mesmo sem experiência prévia com a ferramenta — uma decisão alinhada à preferência da proposta enviada. A construção foi feita com atenção ao detalhe, aprendizado ativo e muita curiosidade.
+
+---
+
+## 🎯 Objetivos do Projeto
+
+- ✅ Capturar dados comerciais: nome, empresa, produto
+- ✅ Gerar respostas personalizadas com IA generativa
+- ✅ Criar uma experiência conversacional fluida e profissional
+- ✅ Oferecer direcionamentos claros para próximos passos comerciais
 
 ---
 
 ## 🌱 Tecnologia Sustentável
 
 ### Design Eficiente
-- Interface minimalista com tons terrosos e design clean  
-- Otimização de recursos de IA para reduzir custos operacionais  
-- Fluxos conversacionais naturais que reduzem fricção
+- Interface minimalista com tons terrosos e foco em acessibilidade
+- Otimização das chamadas de IA para reduzir custos operacionais
+- Fluxo conversacional direto, com baixa fricção
 
 ### Integração Inteligente
-- Chamadas de API otimizadas para menor latência  
-- Fallbacks robustos para erros técnicos  
-- Documentação clara para facilitar manutenção
+- Chamadas de API com baixa latência
+- Fallback amigável para erros técnicos
+- Documentação clara e reutilizável
 
 ---
 
-## Demonstração
+## 🧪 Fluxos Documentados
 
-**Link principal:** [Chatbot Comercial Synk](https://typebot.co/chatbot-comercial-synk-teste-ubyt635)
+### ✅ Typebot + OpenAI (Funcional)
+- Fluxo final usado para testes
+- Captura de dados + envio via Webhook para IA + resposta contextualizada
+- Documentação: [`docs/fluxo-typebot.md`](docs/fluxo-typebot.md)
+- Arquivo importável: [`config/fluxo-typebot.json`](config/fluxo-typebot.json)
 
-📸 **Capturas do bot em funcionamento:**  
-![Fluxo Typebot - Construtor](assets/screenshots/fluxo_typebot_construtor.png)  
-![Chatbot em ação - Interface](assets/screenshots/chatbot_interface_funcionando.png)
-
-**Fluxo de conversação:**
-1. Boas-vindas — apresentação acolhedora  
-2. Coleta de dados — nome, empresa, produto  
-3. Processamento IA — geração da resposta personalizada  
-4. Entrega da proposta — mensagem contextualizada e profissional  
-5. Call-to-Action — direcionamento para próximos passos
-
-### Interface
-- Tom conversacional com emojis  
-- Paleta terrosa e minimalista  
-- Responsivo: funciona bem em mobile e desktop  
-- Feedback visual para cada fase do processo
+### 🛠️ Typebot + n8n + OpenAI (Experimental)
+- Teste técnico usando n8n como ponte de integração
+- Aprendizados técnicos documentados
+- Documentação: [`docs/fluxo-n8n.md`](docs/fluxo-n8n.md)
+- Arquivo importável: [`config/n8n-workflow.json`](config/n8n-workflow.json)
 
 ---
 
-## Arquitetura Técnica
+## 🖼️ Capturas de Tela
 
-**Stack principal:**
-- **Frontend:** Typebot (No-code/Low-code)
-- **IA:** OpenAI API (GPT-3.5/4)
-- **Integração:** Webhook HTTP
-- **Hospedagem:** Typebot Cloud
-
-**Fluxo de dados:**
-```mermaid
-graph TD
-  A[Início da conversa] --> B[Coleta nome da empresa]
-  B --> C[Coleta produto desejado]
-  C --> D[Envio via webhook]
-  D --> E[Processamento pela OpenAI API]
-  E --> F[Resposta gerada]
-  F --> G[Retorno ao usuário]
-  G --> H[CTA para próximos passos]
-```
-
-**Exemplo de prompt enviado para IA:**
-```javascript
-const prompt = `
-Você é um assistente comercial da Synk, empresa focada em automação e IA.
-Empresa cliente: ${empresa}
-Produto interesse: ${produto}
-Crie uma resposta comercial profissional, acolhedora e personalizada.
-`;
-```
+| Construtor Typebot | Chatbot em Ação | Editor n8n |
+|--------------------|------------------|------------|
+| ![fluxo-typebot](assets/screenshots/fluxo_typebot_construtor.png) | ![chatbot](assets/screenshots/chatbot_interface_funcionando.png) | ![n8n](assets/screenshots/fluxo_n8n_editor.png) |
 
 ---
 
-## 📁 Estrutura do Repositório
+## 📂 Estrutura do Repositório
 
-```
 assistente-comercial-synk/
 ├── README.md
-├── index.html
-├── docs/
-│   ├── fluxo-typebot.md
-│   └── fluxo-n8n.md
 ├── config/
-│   ├── fluxo-typebot.json
-│   └── n8n-workflow.json
+│ ├── fluxo-typebot.json
+│ └── n8n-workflow.json
+├── docs/
+│ ├── fluxo-typebot.md
+│ └── fluxo-n8n.md
 └── assets/
-    └── screenshots/
-        ├── fluxo_typebot_construtor.png
-        └── chatbot_interface_funcionando.png
-```
+└── screenshots/
+├── fluxo_typebot_construtor.png
+├── chatbot_interface_funcionando.png
+└── fluxo_n8n_editor.png
+
+yaml
+Copiar
+Editar
 
 ---
 
-## 📊 Fluxos Documentados
+## 🧠 Sobre o Desenvolvimento
 
-### 1. ✅ Typebot + OpenAI (Funcional)
-**Documentado em:** `docs/fluxo-typebot.md`
+Este projeto representa minha **primeira experiência com o Typebot**, ferramenta escolhida como prioridade no teste da Synk.  
+Além de entregar o fluxo funcional, documentei também o experimento com n8n como prova de aprendizado e versatilidade.
 
-- Blocos: Start, coleta de Nome, Empresa, Produto
-- Webhook chama OpenAI com prompt estruturado
-- Resposta da IA com CTA e fallback para erro
-- Importação fácil via `config/fluxo-typebot.json`
-
-### 2. 🛠️ Typebot + n8n + OpenAI (Experimento)
-**Documentado em:** `docs/fluxo-n8n.md`
-
-- Workflow importável via `config/n8n-workflow.json`
-- Node Webhook recebe dados, envia para node OpenAI
-- **Desafio:** payload não compatível com retorno formatado
-- **Aprendizados:** uso de Function/Set para extrair texto, limpeza do payload, sugestões de retry
-
----
-
-## 🧪 Processo de Desenvolvimento
-
-**Desafio inicial:**
-Experimentei Typebot + n8n + OpenAI, mas detectei limitações no retorno pelo webhook.
-
-**Solução pragmática:**
-- **Fluxo funcional:** Typebot + OpenAI – 100% operacional
-- **Experimento documentado:** análise técnica aprofundada no n8n
-
-**Principais aprendizados:**
-- Debug e tratamento de erros via webhook
-- Otimização de chamadas para OpenAI
-- Design conversacional focado no cliente
-- Implementação de fallback com mensagens amigáveis
-
----
-
-## 📈 Métricas de Performance
-
-- **Coleta de dados:** < 2s
-- **Processamento IA:** 3–5s
-- **Resposta final:** < 1s
+- Design centrado no usuário
+- Documentação limpa e sustentável
+- Uso eficiente da IA com propósito
 
 ---
 
 ## 👩🏽‍💻 Sobre a Desenvolvedora
 
-**Lídi** — Artista em transição para tecnologia 🌱
+**Lídi Moura** — artista em transição para tecnologia 🌱
 
 - Background em Psicologia, Arte e atendimento clínico
-- Estudante de Python, IA/ML e automações
-- Projetos: Assistente Amazô, Encontro d'Água Hub
+- Estudante de Python, APIs e automações com IA
+- Criadora da **Amazô**, assistente técnica do Hub Encontro d’Água
 - Foco em tecnologia acessível, sustentável e centrada no humano
 
-### Competências Técnicas
-- **No-code/Low-code:** Typebot, n8n, Zapier
-- **IA/ML:** OpenAI API, prompt engineering
-- **Linguagens:** Python (iniciante), JavaScript (básico)
-- **Soft skills:** UX thinking, design conversacional, documentação
+### 💼 Competências Técnicas
+- No-code/Low-code: Typebot, n8n, Zapier, Make
+- IA/ML: OpenAI API, prompt engineering
+- Linguagens: Python (iniciante), JavaScript (básico)
+- Soft skills: UX thinking, design conversacional, documentação
 
 ---
 
 ## 🤝 Contato & Links
 
-<div align="center">
-
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/seu-usuario)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/seu-perfil)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:seu-email@example.com)
-
-</div>
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0e76a8?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/lidimoura/)
+[![GitHub](https://img.shields.io/badge/-GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arara-coder)
+[![Email](https://img.shields.io/badge/-lidimfc@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:lidimfc@gmail.com)
 
 ---
 
-## 📄 Licença
-
-Este projeto foi desenvolvido como teste técnico para a Synk.  
-O código está disponível para avaliação e serve como referência educacional.
-
----
-
-<div align="center">
-
-**Feito com 💚 e tecnologia sustentável**
+Feito com 💚 e propósito — por uma tecnologia mais humana, ética e sustentável.
 
 *Obrigada pela oportunidade de mostrar minha visão em tecnologia!*
 
